@@ -9,8 +9,8 @@ max(length) as max_duration from sakila.film;
 
 -- 1.2. Express the average movie duration in hours and minutes. Don't use decimals.
 
-select floor(length/60) as hour,
-floor(length % 60) as minute from sakila.film;
+select floor(avg(length/60)) as hour,
+floor(avg(length % 60)) as minute from sakila.film;
 
 -- 2.1 Calculate the number of days that the company has been operating.
 
@@ -46,11 +46,14 @@ order by title;
 
 
 -- 4. Bonus: The marketing team for the movie rental company now needs to create a personalized email campaign for customers. 
--- To achieve this, you need to retrieve the concatenated first and last names of customers, along with the first 3 characters of their email address, so that you can address them by their first name and use their email address to send personalized recommendations. 
--- The results should be ordered by last name in ascending order to make it easier to use the data.
 
 select concat(first_name,' ',last_name,' ',left(email,3)) as customer 
 from sakila.customer;
+
+-- To achieve this, you need to retrieve the concatenated first and last names of customers, along with the first 3 characters of their email address, so that you can address them by their first name and use their email address to send personalized recommendations. 
+-- The results should be ordered by last name in ascending order to make it easier to use the data.
+
+
 
 -- Challenge 2
 
